@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import CarList from './components/CarList'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom'
+import Home from './views/Home'
+import Inventory from './views/Inventory'
+import Profile from './views/Profile'
 
-function App() {
+export default function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/Inventory">Inventory</Link>
+            </li>
+            <li>
+              <Link to="/Profile">Profile</Link>
+            </li>
+          </ul>
+        </nav>
 
-export default App;
+        <Routes>
+          <Route path="/Inventory" element={<Inventory />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
+    </>
+  )
+}
