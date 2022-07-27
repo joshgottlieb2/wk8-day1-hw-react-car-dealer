@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom'
 import Home from './views/Home'
 import Inventory from './views/Inventory'
+import InventorySingle from './views/InventorySingle'
 import Profile from './views/Profile'
 
 export default function App() {
@@ -21,18 +22,21 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/Inventory">Inventory</Link>
+              <Link to="/inventory">Inventory</Link>
             </li>
             <li>
-              <Link to="/Profile">Profile</Link>
+              <Link to="/profile">Profile</Link>
             </li>
           </ul>
         </nav>
 
         <Routes>
-          <Route path="/Inventory" element={<Inventory />} />
-          <Route path="/Profile" element={<Profile />} />
           <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="inventory">
+            <Route path=":id" element={<InventorySingle />} />
+            <Route path="" element={<Inventory />} />
+          </Route>
         </Routes>
       </Router>
     </>
