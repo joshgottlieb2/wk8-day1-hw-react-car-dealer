@@ -1,10 +1,13 @@
-import { createContext, useState, useEffect } from "react"
-import { getFirestore, getDoc, getDocs, collection, doc } from '@firebase/firestore'
+import { createContext, useState, useEffect, useContext } from "react"
+import { getFirestore, getDoc, getDocs, collection, doc, addDoc, Timestamp, orderBy, query, collectionGroup } from '@firebase/firestore'
+import { AuthContext } from "./AuthProvider"
 
 export const DataContext = createContext()
 
 export const DataProvider = (props) => {
     const [cars, setCars] = useState([])
+    const { user } = useContext(AuthContext)
+    
     const db = getFirestore()
 
     useEffect(() => {
