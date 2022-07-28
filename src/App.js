@@ -10,6 +10,7 @@ import Home from './views/Home'
 import Inventory from './views/Inventory'
 import InventorySingle from './views/InventorySingle'
 import Profile from './views/Profile'
+import firebase from './firebase'
 
 export default function App() {
 
@@ -22,18 +23,18 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/inventory">Inventory</Link>
+              <Link to="/Inventory">Inventory</Link>
             </li>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/Profile">Profile</Link>
             </li>
           </ul>
         </nav>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="inventory">
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="Inventory">
             <Route path=":id" element={<InventorySingle />} />
             <Route path="" element={<Inventory />} />
           </Route>

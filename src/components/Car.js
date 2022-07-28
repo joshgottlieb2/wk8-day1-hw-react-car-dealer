@@ -7,13 +7,13 @@ export default function Car(props) {
 
         if (!props.hideLink) {
             resHeader = (
-                <Link to={"/inventory/" + props.car.id}>
-                    {props.car.id+1}: {props.car.name}
+                <Link to={"/Inventory/" + props.car.id}>
+                    {props.car.id}: {props.car.name}
                 </Link>
             )
         } else {
             resHeader = (
-                <>{props.car.id + 1}: {props.car.name}</>
+                <>{props.car.id}: {props.car.name}</>
             )
         }
 
